@@ -1,0 +1,24 @@
+{
+  "name": "ipfs-common-shake",
+  "version": "0.0.0",
+  "description": "Does common-shake save some bytes when bundling IPFS?",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production browserify -g uglifyify index.js | uglifyjs -c > bundle.js",
+    "build:shake": "NODE_ENV=production browserify -p [ common-shakeify -v ] -g uglifyify index.js | uglifyjs -c > bundle.js",
+    "clean": "rm bundle.js",
+    "serve": "ecstatic --cache=0"
+  },
+  "author": "Alan Shaw",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^16.1.1",
+    "common-shakeify": "^0.4.6",
+    "ecstatic": "^3.2.0",
+    "ipfs": "^0.28.2",
+    "uglify-es": "^3.3.9",
+    "uglifyify": "^4.0.5"
+  }
+}
