@@ -5,3 +5,5 @@ const ipfs = new Ipfs()
 ipfs.on('ready', () => {
   console.log('ready')
 })
+
+window.ipfs = ipfs

@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production browserify -g uglifyify index.js | uglifyjs -c > bundle.js",
-    "build:shake": "NODE_ENV=production browserify -p [ common-shakeify -v ] -g uglifyify index.js | uglifyjs -c > bundle.js",
+    "build": "NODE_ENV=production browserify -g envify -g uglifyify index.js | uglifyjs -c > bundle.js",
+    "build:shake": "NODE_ENV=production browserify -g envify -g uglifyify -p [ common-shakeify -v ] index.js | uglifyjs -c > bundle.js",
     "clean": "rm bundle.js",
     "serve": "ecstatic --cache=0"
   },
@@ -17,8 +17,18 @@
     "browserify": "^16.1.1",
     "common-shakeify": "^0.4.6",
     "ecstatic": "^3.2.0",
+    "envify": "^4.1.0",
     "ipfs": "^0.28.2",
     "uglify-es": "^3.3.9",
     "uglifyify": "^4.0.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanshaw/ipfs-common-shake.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alanshaw/ipfs-common-shake/issues"
+  },
+  "homepage": "https://github.com/alanshaw/ipfs-common-shake#readme"
 }
